@@ -6,8 +6,8 @@ This repository provides the Julia and Python code for learning and visualizing 
 
 1. Download the experimental data at
 2. Import the `nilab` toolbox that is part of this repository by
-    2.1. [add to path]
-    2.2 `using nilab`
+    * [add to path]
+    * `using nilab`
 
 ## Learning a neuro-cognitive causal model
 
