@@ -23,7 +23,7 @@ You can then reproduce the plots in [reference to paper] by using the plotting f
 
 ## Learning a neuro-cognitive causal model
 
-The main function in `nilab` to learn NC-MCMs is `learn_mcm`:
+The main function in `nilab` to learn NC-MCMs is `learn_mcm` in `../ncmcm/nilab/src/mcm.jl`: 
 
 ```
 This function learns a multi-level causal model from micro-level states x and behaviors y:
@@ -32,14 +32,14 @@ function mcm(x, b ; dimreduction = [], predmodel = logreg, clustering = kmeans, 
 
 Input:
 
-    x   neuronal data [smaples x features]
+    x   neuronal data [samples x features]
     b   discrete behavioral labels [samples]
 
 It relies on the following processing steps:
 
     1. Applies dimensionality reduction method `dimreduction` to input data x [none implemented as of now]
-    2. Uses prediction model `predmodel` to predict the probabilities of each behavior at every sample of x
-    3. Clusters the predicted probabilities using the `clustering` method to generate macroscopcic states
+    2. Uses prediction model `predmodel` to predict the probabilities of each behavior at every sample of x [logistic regression]
+    3. Clusters the predicted probabilities using the `clustering` method to generate macroscopcic states [kmeans]
     4. Uses the test given by `markov_test` to test H0: th macroscopic state transitions form a Markov chain
 
 It returns a mcm model with the following elements:
@@ -53,7 +53,7 @@ It returns a mcm model with the following elements:
     bprob   predicted behavioral probabilities
 ```
 
-
+The four processing steps call further methods implemented in the `nilab` toolbox. The choice of algorithms is currently rather limited, but new methods for each of the processing steps can be implemented in `nilab` and then called from `learn_mcm()`.
 
 ## Plotting a neuro-cognitive causal model
 
