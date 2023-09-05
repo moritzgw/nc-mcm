@@ -1,6 +1,11 @@
 # Neuro-Cognitive Multivel Causal Modeling (NC-MCM)
 
-This repository provides the Julia and Python code for learning and visualizing neuro-cognitive multilevel causal models in general and reproducing the results in [Link text Here](https://link-url-here.org) in particular.
+This repository provides the [Julia](https://julialang.org/) code for learning and the Python code for visualizing neuro-cognitive multilevel causal models. It also provides the scripts for reproducing the results described in [Link text Here](https://link-url-here.org).
+
+## Setting up the NC-MCM package
+
+
+
 
 ## Reproducing the results in [Link text Here](https://link-url-here.org)
 
@@ -12,3 +17,7 @@ This repository provides the Julia and Python code for learning and visualizing 
 ## Learning a neuro-cognitive causal model
 
 ## Plotting a neuro-cognitive causal model
+
+
+## Licenses
+
