@@ -57,7 +57,7 @@ The four processing steps call further methods implemented in the `nilab` toolbo
 
 ## Plotting a neuro-cognitive causal model
 
-The file `../plotting/plot_ncmcms.py` provides a range of functions for visualizing NC-MCMs:
+The file `../plotting/plot_ncmcms.py` provides a range of Python functions for visualizing NC-MCMs:
 
 ## Licenses
 
