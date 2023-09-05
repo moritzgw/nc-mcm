@@ -23,7 +23,7 @@ You can then reproduce the plots in [reference to paper] by using the plotting f
 
 ## Learning a neuro-cognitive causal model
 
-The main function in `nilab` to learn NC-MCMs is `learn_mcm` in `../ncmcm/nilab/src/mcm.jl`: 
+The main function in `nilab` to learn a NC-MCM is `learn_mcm()` in `../ncmcm/nilab/src/mcm.jl`: 
 
 ```
 This function learns a multi-level causal model from micro-level states x and behaviors y:
@@ -56,6 +56,8 @@ It returns a mcm model with the following elements:
 The four processing steps call further methods implemented in the `nilab` toolbox. The choice of algorithms is currently rather limited, but new methods for each of the processing steps can be implemented in `nilab` and then called from `learn_mcm()`.
 
 ## Plotting a neuro-cognitive causal model
+
+The file `../plotting/plot_ncmcms.py` provides a range of functions for visualizing NC-MCMs:
 
 ## Licenses
 
