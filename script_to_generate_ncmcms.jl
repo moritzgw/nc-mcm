@@ -90,7 +90,7 @@ mcm_models = []
 for iworm = 1:5
 
 	# Load data of one worm
-	x, b, blabels, neurons = loadce("NoStim_Data.mat", iworm)
+	x, b, blabels, neurons = loadce("WT_NoStim.mat", iworm)
 
 	# Compute cross-validated classification accuracy
 	cv_folds = 10

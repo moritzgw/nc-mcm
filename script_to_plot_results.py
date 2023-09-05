@@ -1,10 +1,8 @@
-#############################
-# Import plotting functions #
-#############################
 
-run plotting_functions.py
+###################
+#%% plot p-values #
+###################
 
-#%% plot p-values
 plot_p_values_markov(save=False)
 
 #########################################################################
@@ -26,8 +24,8 @@ plot_ncmcmgraph("nc_mcm_model_worm_" + str(iworm) + ".npz", nc, T_thresh=0.001, 
 ax.set_title("(B) Cognitive-behavioral transition diagram")
 
 fig.tight_layout()
-fig.savefig("bmotifs.png")
-plt.close(fig)
+# fig.savefig("bmotifs.png")
+# plt.close(fig)
 
 ###########################################################
 #%% plot behavioral motifs of all worms for supp material #
@@ -57,8 +55,8 @@ for n1 in range(5):
 	# ax.set_title("p="p)
 
 fig.tight_layout()
-fig.savefig("bmotifs_all.png")
-plt.close(fig)
+# fig.savefig("bmotifs_all.png")
+# plt.close(fig)
 
 #####################################################
 #%% plot bundle-net manifolds with cognitive models #
@@ -83,8 +81,8 @@ for n in range(5):
 	fig = plt.figure(dpi = 300, figsize = (5, 5))
 	plot_ncmcmgraph("nc_mcm_model_worm_" + str(n+1) + ".npz", nc_per_worm[n], T_thresh=thresh, max_width=plot_width, max_size=plot_size, Nsmooth=N, separate_plot = False, textsize = text_size, bspread=0.4, reorder = reorder[n])
 	# fig.tight_layout()
-	fig.savefig("cognitive_w" + str(n) + ".png")
-	plt.close(fig)	
+	# fig.savefig("cognitive_w" + str(n) + ".png")
+	# plt.close(fig)	
 
 ###############################
 #%% plot decision making info #
@@ -102,7 +100,7 @@ np.sum([cond_transition_prob(T, states, ["C1:revsus","C" + str(n+1) + ":dt"]) fo
 p, T, states = plot_ncmcmgraph("nc_mcm_model_worm_3.npz", 7, T_thresh=0, max_width=500, Nsmooth=N, separate_plot = True, reorder = [2, 3, 6, 0, 1, 5, 4])
 
 # perturbations
-neuronal_perturbations("revsus", ["revsus","vt", "dt"], legend = ["$\Delta x^{revsus}_{revsus}$","$\Delta x^{revsus}_{vt}$","$\Delta x^{revsus}_{dt}$"])
-neuronal_perturbations("slow", ["slow","fwd", "rev2"], legend = ["$\Delta x^{slow}_{slow}$","$\Delta x^{slow}_{fwd}$","$\Delta x^{slow}_{rev2}$"])
+neuronal_perturbations("revsus", ["revsus","vt", "dt"], legend = ["$\Delta x^{revsus}_{revsus}$","$\Delta x^{revsus}_{vt}$","$\Delta x^{revsus}_{dt}$"], save=False)
+neuronal_perturbations("slow", ["slow","fwd", "rev2"], legend = ["$\Delta x^{slow}_{slow}$","$\Delta x^{slow}_{fwd}$","$\Delta x^{slow}_{rev2}$"], save=False)
 
  
