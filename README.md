@@ -1,6 +1,6 @@
 # Neuro-Cognitive Multivel Causal Modeling (NC-MCM)
 
-This repository provides the [Julia](https://julialang.org/) code for learning and the Python code for visualizing neuro-cognitive multilevel causal models, as described in [(M.~Grosse-Wentrup, A.~Kumar, A.~Meunier, and M.~Zimmer, Neuro-Cognitive Multilevel Causal Modeling: A Framework that Bridges the Explanatory Gap between Neuronal Activity and Cognition)][addlink]. It also provides the scripts for reproducing the results described in the paper.
+This repository provides the [Julia](https://julialang.org/) code for learning and the Python code for visualizing neuro-cognitive multilevel causal models, as described in [M. Grosse-Wentrup, A. Kumar, A. Meunier, and M. Zimmer, Neuro-Cognitive Multilevel Causal Modeling: A Framework that Bridges the Explanatory Gap between Neuronal Activity and Cognition](addlink). It also provides the scripts for reproducing the results described in the paper.
 
 ## Reproducing the results in [Link text Here](https://link-url-here.org)
 
