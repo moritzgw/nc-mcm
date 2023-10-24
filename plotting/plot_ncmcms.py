@@ -1,4 +1,4 @@
-def plot_trajectory(file, file2, nc = 3, plottype = 'cognitive', prob = False):
+def plot_trajectory(file, file2, nc = 3, plottype = 'cognitive', prob = False, save = []):
 
 	import numpy as np
 	import matplotlib.pyplot as plt
@@ -16,10 +16,16 @@ def plot_trajectory(file, file2, nc = 3, plottype = 'cognitive', prob = False):
 	if file2 != []:
 
 		data2 = np.load(file2)
-		x = data2["arr_0"] 
-		b = data2["arr_2"]-1
-		labels = data["arr_3"]
-		c = c[15:] # shorten data for bundle-net
+		x = data2["x"]
+		b = data2["b"].astype(int)
+		# labels = data["arr_3"]
+		c = c[16:] # shorten data for bundle-net
+		# relabel from bundle_net to nc-mcm labeling
+		bundle_net_labels = ['dt', 'fwd', 'nostate', 'rev1', 'rev2', 'revsus', 'slow', 'vt']
+		# labels = bundle_net_labels
+		for i in range(len(b)):
+			b[i] = np.where(labels == bundle_net_labels[b[i][0]])[0][0]
+
 
 	print("p-value: " + str(p_markov[nc-1]))
 
@@ -30,6 +36,7 @@ def plot_trajectory(file, file2, nc = 3, plottype = 'cognitive', prob = False):
 	elif plottype == 'behavior':
 
 		y = b
+		yc = c
 
 	else:
 
@@ -52,8 +59,17 @@ def plot_trajectory(file, file2, nc = 3, plottype = 'cognitive', prob = False):
 
 	Y = np.unique(y)
 
-	fig = plt.figure()
+	if save != []:
+
+		fig = plt.figure(dpi = 300, figsize = (5, 5))
+
+	else:
+
+		fig = plt.figure()
+
+	
 	ax = fig.add_subplot(projection='3d')
+	ax.view_init(elev=20., azim=100)
 
 	colors = ['b','g','r','c','m','gray','y','peru']
 
@@ -68,11 +84,17 @@ def plot_trajectory(file, file2, nc = 3, plottype = 'cognitive', prob = False):
 			dy = 0.3*(x[j+1, 1] - x[j, 1])
 			dz = 0.3*(x[j+1, 2] - x[j, 2])
 			# ax.arrow(x[j, 0], x[j, 1], dx, dy, width=0.01, color = colors[int(i)], linewidth=0.01)
-			ax.quiver(x[j, 0], x[j, 1], x[j, 2], dx, dy, dz, linewidth = 1, length=2, normalize=False, color = colors[int(i)], arrow_length_ratio=0.5)
+			ax.quiver(x[j, 0], x[j, 1], x[j, 2], dx, dy, dz, linewidth = 1, length=2, normalize=False, color = colors[int(Y[i])], arrow_length_ratio=0.5)
+			# ax.scatter(x[j, 0], x[j, 1], x[j, 2], c=colors[int(yc[int(j)])], marker='*', s = 2)
+			# ax.text(x[j, 0], x[j, 1], x[j, 2], str(int(yc[int(j)])), size = 5)
 
 		# ax.set_axis_off()
 
 	legend = [Line2D([0], [0], color=colors[n], lw=2) for n in range(len(Y))]
+	ax.set_xticklabels([])
+	ax.set_yticklabels([])
+	ax.set_zticklabels([])
+	# from IPython import embed; embed()
 	
 	if plottype == 'cognitive':
 
@@ -80,11 +102,17 @@ def plot_trajectory(file, file2, nc = 3, plottype = 'cognitive', prob = False):
 
 	elif plottype == 'behavior':
 
-		ax.legend(legend, [z for z in labels])
+		ax.legend(legend, [z for z in labels], loc = 'upper left')
 
 	else:
 
 		error('plottype not recognized')
+
+	if save != []:
+
+		fig.tight_layout()
+		fig.savefig(save)
+		plt.close(fig)
 
 
 

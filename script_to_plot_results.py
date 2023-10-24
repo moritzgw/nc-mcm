@@ -1,8 +1,10 @@
+#############################
+# Import plotting functions #
+#############################
 
-###################
-#%% plot p-values #
-###################
+run plotting_functions.py
 
+#%% plot p-values
 plot_p_values_markov(save=False)
 
 #########################################################################
@@ -24,8 +26,8 @@ plot_ncmcmgraph("nc_mcm_model_worm_" + str(iworm) + ".npz", nc, T_thresh=0.001, 
 ax.set_title("(B) Cognitive-behavioral transition diagram")
 
 fig.tight_layout()
-# fig.savefig("bmotifs.png")
-# plt.close(fig)
+fig.savefig("bmotifs.png")
+plt.close(fig)
 
 ###########################################################
 #%% plot behavioral motifs of all worms for supp material #
@@ -49,14 +51,14 @@ for n1 in range(5):
 
 	ax = fig.add_subplot(2, 5, n1+1)
 	plot_ncmcmgraph("nc_mcm_model_worm_" + str(n1+1) + ".npz", 1, T_thresh=thresh, max_width=plot_width, max_size=plot_size, Nsmooth=N, separate_plot = False, textsize = text_size)
-	ax.set_title("Worm " + str(n1), fontsize = 8)
+	ax.set_title("Worm " + str(n1+1), fontsize = 8)
 	ax = fig.add_subplot(2, 5, n1+6)
 	plot_ncmcmgraph("nc_mcm_model_worm_" + str(n1+1) + ".npz", nc_per_worm[n1], T_thresh=thresh, max_width=plot_width, max_size=plot_size, Nsmooth=N, separate_plot = False, textsize = text_size, bspread=0.4, reorder = reorder[n1])
 	# ax.set_title("p="p)
 
 fig.tight_layout()
-# fig.savefig("bmotifs_all.png")
-# plt.close(fig)
+fig.savefig("bmotifs_all.png")
+plt.close(fig)
 
 #####################################################
 #%% plot bundle-net manifolds with cognitive models #
@@ -76,13 +78,13 @@ thresh = 0.00075
 
 for n in range(5):
 
-	plot_trajectory("nc_mcm_model_worm_" + str(n+1) + ".npz", "bundle_mcm_kmeans_without_behav_neurons_" + str(n) + ".npz", 3, plottype='behavior') 
+	plot_trajectory("nc_mcm_model_worm_" + str(n+1) + ".npz", "bundle_net_results_consistent/bundlenet_consistent_embedding_worm_" + str(n) + ".npz", nc_per_worm[n], plottype='behavior', save = "bundlenet_w" + str(n) + ".png") 
 	
 	fig = plt.figure(dpi = 300, figsize = (5, 5))
 	plot_ncmcmgraph("nc_mcm_model_worm_" + str(n+1) + ".npz", nc_per_worm[n], T_thresh=thresh, max_width=plot_width, max_size=plot_size, Nsmooth=N, separate_plot = False, textsize = text_size, bspread=0.4, reorder = reorder[n])
 	# fig.tight_layout()
-	# fig.savefig("cognitive_w" + str(n) + ".png")
-	# plt.close(fig)	
+	fig.savefig("cognitive_w" + str(n) + ".png")
+	plt.close(fig)	
 
 ###############################
 #%% plot decision making info #
@@ -100,7 +102,7 @@ np.sum([cond_transition_prob(T, states, ["C1:revsus","C" + str(n+1) + ":dt"]) fo
 p, T, states = plot_ncmcmgraph("nc_mcm_model_worm_3.npz", 7, T_thresh=0, max_width=500, Nsmooth=N, separate_plot = True, reorder = [2, 3, 6, 0, 1, 5, 4])
 
 # perturbations
-neuronal_perturbations("revsus", ["revsus","vt", "dt"], legend = ["$\Delta x^{revsus}_{revsus}$","$\Delta x^{revsus}_{vt}$","$\Delta x^{revsus}_{dt}$"], save=False)
-neuronal_perturbations("slow", ["slow","fwd", "rev2"], legend = ["$\Delta x^{slow}_{slow}$","$\Delta x^{slow}_{fwd}$","$\Delta x^{slow}_{rev2}$"], save=False)
+neuronal_perturbations("revsus", ["revsus","vt", "dt"], legend = ["$\Delta x^{revsus}_{revsus}$","$\Delta x^{revsus}_{vt}$","$\Delta x^{revsus}_{dt}$"])
+neuronal_perturbations("slow", ["slow","fwd", "rev2"], legend = ["$\Delta x^{slow}_{slow}$","$\Delta x^{slow}_{fwd}$","$\Delta x^{slow}_{rev2}$"])
 
  
