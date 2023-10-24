@@ -50,6 +50,6 @@ After setting up the `nilab` toolbox in Julia as described above:
 1. Download the experimental data from [https://osf.io/2395t/](https://osf.io/2395t/) and place the file `WT_NoStim.mat` in the main `nc-mcm` directory.
 6. In Julia and after importing the `nilab` toolbox, run `include('script_to_generate_ncmcms.jl')` (this may take a while).
 
-This will store the results in individual (`.jld2` and `.npz`) files for each worm in the current directory. The `.npz` files are used for plotting the results in Python.
+This will store the results in individual (`.jld2` and `.npz`) files for each worm in the current directory. The `.npz` files are used for plotting the results in Python. The original files used in the publication are provided in `precomputed_results/`.
 
 To plot the results, and assuming you use [Conda](https://docs.conda.io/en/latest/) as the package management environment, create a virtual environment with the provided `.yml` file: `conda env create -f ncmcm.yml`. You can then reproduce the plots in the original paper in Python by, first, importing the plotting functions via `from plot_ncmcms import *` in `../nc-mcm/plotting/` and, second, running the plotting script in the current namespace: `run -i script_to_plot_results.py`.
