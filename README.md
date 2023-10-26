@@ -4,14 +4,14 @@ This repository provides the [Julia](https://julialang.org/) code for learning a
 
 ## Setting up the `nilab` toolbox
 
-2. Start Julia with the `project.toml` file provided with `nilab`: `julia --project=path_to/nc-mcm`.
-3. Instantiate the project by switching to `Pkg` (via `]`) and calling `instantiate`.
-4. Add `nilab` to your path: `push!(LOAD_PATH, "../nc-mcm/nilab/src/")`.
-5. Import `nilab`: `using nilab`.
+1. After starting Julia, switch to `Pkg` mode with `]` and activate the NC-MCM environment via  `activate /path/to/nc-mcm/Project.toml`.
+2. Still in `Pkg` mode, download and build the required packages by calling `instantiate`.
+3. Exit `Pkg` mode and add `nilab` to your path: `push!(LOAD_PATH, "path/to/nc-mcm/nilab/src/")`.
+4. Import `nilab`: `using nilab`.
 
 ## Learning a neuro-cognitive causal model
 
-The main function in `nilab` to learn a NC-MCM is `learn_mcm()` in `../ncmcm/nilab/src/mcm.jl`: 
+The main function in `nilab` to learn a NC-MCM is `learn_mcm()` (located in `../ncmcm/nilab/src/mcm.jl`): 
 
 ```
 This function learns a multi-level causal model from micro-level states x and behaviors y:
@@ -48,7 +48,7 @@ The four processing steps call further methods implemented in the `nilab` toolbo
 After setting up the `nilab` toolbox in Julia as described above:
 
 1. Download the experimental data from [https://osf.io/2395t/](https://osf.io/2395t/) and place the file `WT_NoStim.mat` in the main `nc-mcm` directory.
-6. In Julia and after importing the `nilab` toolbox, run `include('script_to_generate_ncmcms.jl')` (this may take a while).
+2. In Julia and after importing the `nilab` toolbox, run `include('script_to_generate_ncmcms.jl')` (this may take a while).
 
 This will store the results in individual (`.jld2` and `.npz`) files for each worm in the current directory. The `.npz` files are used for plotting the results in Python. The original files used in the publication are provided in `precomputed_results/`.
 
