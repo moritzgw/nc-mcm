@@ -1,13 +1,10 @@
 # Neuro-Cognitive Multivel Causal Modeling (NC-MCM)
 
-This repository provides the [Julia](https://julialang.org/) code for learning and the Python code for visualizing neuro-cognitive multilevel causal models, as described in [M. Grosse-Wentrup, A. Kumar, A. Meunier, and M. Zimmer, Neuro-Cognitive Multilevel Causal Modeling: A Framework that Bridges the Explanatory Gap between Neuronal Activity and Cognition](addlink). It also provides the scripts for reproducing the results described in the original paper.
+This repository provides the [Julia](https://julialang.org/) code for learning and the Python code for visualizing neuro-cognitive multilevel causal models (NC-MCMs), as described in [M. Grosse-Wentrup, A. Kumar, A. Meunier, and M. Zimmer, Neuro-Cognitive Multilevel Causal Modeling: A Framework that Bridges the Explanatory Gap between Neuronal Activity and Cognition](addlink). It also provides the scripts for reproducing the results described in the original paper.
 
 ## Setting up the `nilab` toolbox
 
-1. After starting Julia, switch to `Pkg` mode with `]` and activate the NC-MCM environment via  `activate /path/to/nc-mcm/Project.toml`.
-2. Still in `Pkg` mode, download and build the required packages by calling `instantiate`.
-3. Exit `Pkg` mode and add `nilab` to your path: `push!(LOAD_PATH, "path/to/nc-mcm/nilab/src/")`.
-4. Import `nilab`: `using nilab`.
+The code for learning a NC-MCM is implemented in the `nilab` toolbox, which is part of this repository. To use the `nilab` toolbox, start Julia, switch to `Pkg` mode with `]`, activate the NC-MCM environment via `activate /path/to/nc-mcm/nilab/`, and then import `nilab` via `using nilab`.
 
 ## Learning a neuro-cognitive causal model
 
