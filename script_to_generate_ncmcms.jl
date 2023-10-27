@@ -117,6 +117,8 @@ end
 # Extract and store raw data with all neurons for plotting in Python #
 ######################################################################
 
+np = pyimport("numpy")
+
 # neurons
 identified_neurons_numbers = []
 identified_neurons_names = []
