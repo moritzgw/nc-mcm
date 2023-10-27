@@ -3,12 +3,9 @@
 ###########
 
 using nilab
-using CSV
-using DataFrames
 using PyCall
 using LinearAlgebra
 using Statistics
-using Gnuplot
 using JLD2
 
 #############
@@ -127,7 +124,7 @@ identified_neurons_names = []
 for iworm = 1:5
 
 	# raw data
-	x, b, blabels, neurons = loadce("NoStim_Data.mat", iworm, delbehavneurons = false)
+	x, b, blabels, neurons = loadce("WT_NoStim.mat", iworm, delbehavneurons = false)
 	np.savez(string("raw_full_data_worm_", iworm), x)
 
 	nr_neurons = length(neurons)

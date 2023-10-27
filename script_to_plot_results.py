@@ -2,8 +2,6 @@
 # Import plotting functions #
 #############################
 
-run plotting_functions.py
-
 #%% plot p-values
 plot_p_values_markov(save=False)
 
@@ -78,7 +76,7 @@ thresh = 0.00075
 
 for n in range(5):
 
-	plot_trajectory("nc_mcm_model_worm_" + str(n+1) + ".npz", "bundle_net_results_consistent/bundlenet_consistent_embedding_worm_" + str(n) + ".npz", nc_per_worm[n], plottype='behavior', save = "bundlenet_w" + str(n) + ".png") 
+	plot_trajectory("nc_mcm_model_worm_" + str(n+1) + ".npz", "bundlenet_consistent_embedding_worm_" + str(n) + ".npz", nc_per_worm[n], plottype='behavior', save = "bundlenet_w" + str(n) + ".png") 
 	
 	fig = plt.figure(dpi = 300, figsize = (5, 5))
 	plot_ncmcmgraph("nc_mcm_model_worm_" + str(n+1) + ".npz", nc_per_worm[n], T_thresh=thresh, max_width=plot_width, max_size=plot_size, Nsmooth=N, separate_plot = False, textsize = text_size, bspread=0.4, reorder = reorder[n])

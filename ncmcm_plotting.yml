@@ -1,0 +1,8 @@
+name: ncmcm_plotting
+channels:
+  - defaults
+dependencies:
+  - matplotlib >= 3.3.1
+  - networkx >= 2.5
+  - numpy >= 1.21.0
+  - scipy >= 1.7.3

@@ -4,7 +4,11 @@ This repository provides the [Julia](https://julialang.org/) code for learning a
 
 ## Setting up the `nilab` toolbox
 
-The code for learning a NC-MCM is implemented in the `nilab` toolbox, which is part of this repository. To use the `nilab` toolbox, start Julia, switch to `Pkg` mode with `]`, activate the NC-MCM environment via `activate /path/to/nc-mcm/nilab/`, and then import `nilab` via `using nilab`.
+The code for learning a NC-MCM is implemented in the `nilab` toolbox, which is part of this repository. To use the `nilab` toolbox,
+
+1. start Julia, switch to `Pkg` mode with `]`, activate the NC-MCM environment via `activate /path/to/nc-mcm/nilab/`,
+2. install all dependencies by calling `instantiate` while still in `Pkg` mode,
+3. leave `Pkg` mode and import `nilab` via `using nilab`.
 
 ## Learning a neuro-cognitive causal model
 
@@ -49,4 +53,11 @@ After setting up the `nilab` toolbox in Julia as described above:
 
 This will store the results in individual (`.jld2` and `.npz`) files for each worm in the current directory. The `.npz` files are used for plotting the results in Python. The original files used in the publication are provided in `precomputed_results/`.
 
-To plot the results, and assuming you use [Conda](https://docs.conda.io/en/latest/) as the package management environment, create a virtual environment with the provided `.yml` file: `conda env create -f ncmcm.yml`. You can then reproduce the plots in the original paper in Python by, first, importing the plotting functions via `from plot_ncmcms import *` in `../nc-mcm/plotting/` and, second, running the plotting script in the current namespace: `run -i script_to_plot_results.py`.
+The code for plotting the results is written in Python. To recreate the plots, and assuming you use [Conda](https://docs.conda.io/en/latest/) as the package management environment, 
+
+1. create a new Python environment via `conda env create -f ncmcm_plotting.yml`,
+2. activate the environment via `conda activate ncmcm_plotting`,
+2. in Python, go to the `path/to/nc-mcm/plotting` directory and import the plotting functions `from plot_ncmcms import *`,
+3. go to the directory where the `.npz` result files reside and run the plotting script in the current namespace: `run -i script_to_plot_results.py`.
+
+Note that the results obtained by [BunDLe-Net](https://www.biorxiv.org/content/10.1101/2023.08.08.551978v3.abstract), which are used for comparison in the plots for the original manuscript, are provided in `path/to/nc-mcm/precomputed_results/` as `bundlenet_consistent_embedding_worm_X.npz` and need to be copied into the same directory as the `.npz` result files.
